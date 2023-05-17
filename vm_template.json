@@ -9,24 +9,13 @@
     }
   },
   "parameters": {
+    "adminPassword": {
+	"type": "securestring"
+	},
     "adminUsername": {
       "type": "string",
       "metadata": {
         "description": "Username for the Virtual Machine."
-      }
-    },
-    "adminPassword": {
-      "type": "securestring",
-      "minLength": 12,
-      "metadata": {
-        "description": "Password for the Virtual Machine."
-      }
-    },
-    "dnsLabelPrefix": {
-      "type": "string",
-      "defaultValue": "[toLower(format('{0}-{1}', parameters('vmName'), uniqueString(resourceGroup().id, parameters('vmName'))))]",
-      "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
     },
     "publicIpName": {
@@ -92,7 +81,7 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_D2s_v5",
+      "defaultValue": "Standard_B1s",
       "metadata": {
         "description": "Size of the virtual machine."
       }
@@ -165,9 +154,6 @@
       },
       "properties": {
         "publicIPAllocationMethod": "[parameters('publicIPAllocationMethod')]",
-        "dnsSettings": {
-          "domainNameLabel": "[parameters('dnsLabelPrefix')]"
-        }
       }
     },
     {
@@ -258,7 +244,7 @@
         "osProfile": {
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]"
+	  "adminPassword": "[parameters('adminPassword')]",
         },
         "storageProfile": {
           "imageReference": {
@@ -290,7 +276,7 @@
         },
         "diagnosticsProfile": {
           "bootDiagnostics": {
-            "enabled": true,
+            "enabled": false,
             "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-05-01').primaryEndpoints.blob]"
           }
         },
@@ -327,10 +313,4 @@
       ]
     }
   ],
-  "outputs": {
-    "hostname": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpName')), '2022-05-01').dnsSettings.fqdn]"
-    }
-  }
 }

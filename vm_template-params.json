@@ -3,13 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": "student"
     },
-    "adminPassword": {
-      "value": "GEN-PASSWORD"
-    },
-    "dnsLabelPrefix": {
-      "value": "GEN-UNIQUE"
-    }
-  }
+	"adminPassword": {
+		"reference":
+		{
+			"keyvault": {
+				"id": "/subscriptions/87504e90-6b3e-4892-8089-e84f0d0b8d8a/resourceGroups/rgvm/providers/Microsoft.KeyVault/vaults/tempkeyvaultcloudeon2"}, 
+	"secretName": "vm-password"
 }
+}
+	  
+
+}}
