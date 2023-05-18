@@ -9,7 +9,7 @@
 		"reference":
 		{
 			"keyvault": {
-				"id": "/subscriptions/87504e90-6b3e-4892-8089-e84f0d0b8d8a/resourceGroups/rgvm/providers/Microsoft.KeyVault/vaults/tempkeyvaultcloudeon2"}, 
+				"id": "/subscriptions/3422d231-4cb7-4bbf-b834-deb657df354a/resourceGroups/rgvm/providers/Microsoft.KeyVault/vaults/jabbalhausvalt"}, 
 	"secretName": "vm-password"
 }
 }
