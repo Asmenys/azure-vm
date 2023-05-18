@@ -11,8 +11,10 @@
 			"keyvault": {
 				"id": "/subscriptions/3422d231-4cb7-4bbf-b834-deb657df354a/resourceGroups/rgvm/providers/Microsoft.KeyVault/vaults/jabbalhausvalt"}, 
 	"secretName": "vm-password"
+		}
+	}
+     },
+     "vmSize": {
+	     "value": "Standard_D2s_v3"
+     }
 }
-}
-	  
-
-}}
