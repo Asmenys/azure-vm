@@ -81,6 +81,7 @@
     },
     "vmSize": {
       "type": "string",
+      "defaultValue": "Standard_D2s_v3",
       "metadata": {
         "description": "Size of the virtual machine."
       }
