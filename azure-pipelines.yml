@@ -16,6 +16,6 @@ steps:
     azureSubscription: 'personal_subscription'
     action: Create Or Update Resource Group
     resourceGroupName: 'rgvm'
-    csmFileLink: 'vm_template.json'
-    csmParametersFile: 'vm_template-params.json'
+    csmFileLink: 'https://raw.githubusercontent.com/Asmenys/azure-vm/main/vm_template.json'
+    csmParametersFileLink: 'https://raw.githubusercontent.com/Asmenys/azure-vm/main/vm_template-params.json'
     deploymentMode: 'Incremental'
