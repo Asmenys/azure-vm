@@ -9,11 +9,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+steps:
+- task: AzureResourceGroupDeployment@2
+  inputs:
+    azureSubscription: 'Azure subscription 1(87504e90-6b3e-4892-8089-e84f0d0b8d8a)'
+    action: Create Or Update Resource Group
+    resourceGroupName: 'rgvm'
+    csmFileLink: 'https://raw.githubusercontent.com/Asmenys/azure-vm/main/vm_template.json'
+    csmParametersFile: 'https://raw.githubusercontent.com/Asmenys/azure-vm/main/vm_template-params.json'
+    deploymentMode: 'Incremental'
