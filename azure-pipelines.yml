@@ -13,7 +13,7 @@ pool:
 steps:
 - task: AzureResourceGroupDeployment@2
   inputs:
-    azureSubscription: '3422d231-4cb7-4bbf-b834-deb657df354a'
+    azureSubscription: 'personal_subscription'
     action: Create Or Update Resource Group
     resourceGroupName: 'rgvm'
     csmFileLink: 'https://raw.githubusercontent.com/Asmenys/azure-vm/main/vm_template.json'
